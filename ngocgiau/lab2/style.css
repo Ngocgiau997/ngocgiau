@@ -1,0 +1,137 @@
+/* Thiết lập chung */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.title {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 40px 0 20px;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Bài 1: Text chạy ngang mượt mà */
+.marquee-box {
+    background: #2c3e50;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.scrolling-text {
+    color: #fff;
+    white-space: nowrap;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: moveText 8s linear infinite alternate;
+}
+
+@keyframes moveText {
+    from { transform: translateX(-40%); }
+    to { transform: translateX(40%); }
+}
+
+/* Bài 2: Hộp xoay với hiệu ứng đàn hồi */
+.box-container {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    align-items: center;
+}
+
+.spinning-box {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    border-radius: 12px;
+    animation: spinRotate 4s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+@keyframes spinRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Bài 3: Ảnh hiện dần (Fade In) */
+.image-fade-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.image-fade-container img {
+    border-radius: 8px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Delay để các ảnh hiện ra lần lượt */
+.image-fade-container img:nth-child(1) { animation-delay: 0.5s; }
+.image-fade-container img:nth-child(2) { animation-delay: 1s; }
+.image-fade-container img:nth-child(3) { animation-delay: 1.5s; }
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(-5px); }
+}
+
+/* Bài 4: Nút nhấp nháy thu hút */
+.blink-button {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 40px;
+    background-color: #ff4b2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    animation: pulseBlink 1.5s infinite;
+}
+
+@keyframes pulseBlink {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 75, 43, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 75, 43, 0); }
+    100% { transform: scale(1); }
+}
+
+/* Bài 5: Slider ảnh tự động mượt mà */
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.slider-track {
+    display: flex;
+    width: 300%; /* Vì có 3 ảnh */
+    animation: slideAuto 12s infinite ease-in-out;
+}
+
+.slider-track img {
+    width: 100%;
+    object-fit: cover;
+}
+
+@keyframes slideAuto {
+    0%, 20% { transform: translateX(0); }
+    33%, 53% { transform: translateX(-33.33%); }
+    66%, 86% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
+}

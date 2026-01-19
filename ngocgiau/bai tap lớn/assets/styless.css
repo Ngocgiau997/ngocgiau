@@ -1,0 +1,62 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary: #ff4757;
+    --nav-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* Chế độ Dark Mode [cite: 22, 56] */
+body.dark-mode {
+    --bg-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --nav-bg: rgba(26, 26, 46, 0.9);
+}
+
+body { background: var(--bg-color); color: var(--text-color); transition: 0.5s; margin: 0; }
+
+/* 1. Nav Hover: Gạch chân chạy từ trái sang phải [cite: 6, 43] */
+.nav-item { position: relative; text-decoration: none; color: var(--text-color); }
+.nav-item::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -5px; left: 0; background: var(--primary); transition: 0.4s ease;
+}
+.nav-item:hover::after, .nav-item.active::after { width: 100%; }
+.nav-item.active { color: var(--primary); font-weight: bold; } /* Scroll Spy [cite: 7, 44] */
+
+/* 2. Hero: Fade-in khi load trang [cite: 9, 46] */
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 2s forwards;
+}
+@keyframes fadeInAnimation {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. Marquee [cite: 11, 47] */
+.marquee { overflow: hidden; background: var(--primary); color: white; padding: 10px 0; }
+.marquee p { animation: marqueeMove 15s linear infinite; white-space: nowrap; }
+@keyframes marqueeMove {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* 3. Hover Card [cite: 16, 50] & Gallery Scale [cite: 17] */
+.card { transition: 0.4s; opacity: 0; transform: translateY(50px); } /* Ẩn ban đầu [cite: 14] */
+.card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+.img-box img { width: 100%; transition: 0.5s; }
+.card:hover img { transform: scale(1.1); }
+
+/* 4. Nút rung lắc gây chú ý [cite: 19, 53] */
+.attention-animation { animation: shake 2s infinite; }
+@keyframes shake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(3deg); }
+    75% { transform: rotate(-3deg); }
+}
+
+/* 5. Custom Cursor [cite: 23, 57] */
+.custom-cursor {
+    width: 20px; height: 20px; border: 2px solid var(--primary);
+    border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999;
+}
