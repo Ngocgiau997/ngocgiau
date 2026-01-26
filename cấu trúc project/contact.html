@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Liên Hệ - GiauDesign</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav class="container">
+            <div class="logo">Giau<span>Design.</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="contact-section reveal" style="max-width:600px; margin: 80px auto;">
+            <h1 style="text-align:center;">Liên Hệ <span>Với Tôi</span></h1>
+            <form id="contactForm">
+                <div class="input-group">
+                    <input type="text" id="name" required>
+                    <label>Họ và tên</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" required>
+                    <label>Email của bạn</label>
+                </div>
+                <button type="submit" class="btn-modern" style="width:100%;">Gửi Tin Nhắn</button>
+            </form>
+        </section>
+        <div id="toast">Gửi tin nhắn thành công!</div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
